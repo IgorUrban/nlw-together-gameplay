@@ -1,14 +1,14 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import { View, Text, Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
 
 type Props = {
-  children: ReactNode;
+  urlImage: string;
 };
 
-export function Background({ children }: Props) {
+export function Avatar({ urlImage }: Props) {
   const { secondary80, secondary100 } = theme.colors;
 
   return (
@@ -16,7 +16,7 @@ export function Background({ children }: Props) {
       style={styles.container}
       colors={[secondary80, secondary100]}
     >
-      {children}
+      <Image source={{ uri: urlImage }} style={styles.avatar} />
     </LinearGradient>
   );
 }
