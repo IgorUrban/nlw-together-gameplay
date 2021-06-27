@@ -48,18 +48,18 @@ export function Home() {
     categoryId === category ? setCategory("") : setCategory(categoryId);
   }
 
-  function handleAppointmentDetais(){
-    navigation.navigate('AppointmentDetails');
+  function handleAppointmentDetais() {
+    navigation.navigate("AppointmentDetails");
   }
 
-  function handleAppointmentCreate(){
-    navigation.navigate('AppointmentCreate');
+  function handleAppointmentCreate() {
+    navigation.navigate("AppointmentCreate");
   }
   return (
     <Background>
       <View style={styles.header}>
         <Profile />
-        <ButtonAdd onPress={handleAppointmentCreate}/>
+        <ButtonAdd onPress={handleAppointmentCreate} />
       </View>
 
       <View>
@@ -67,24 +67,19 @@ export function Home() {
           categorySelected={category}
           setCategory={handleCategorySelect}
         />
-
-        <View style={styles.content}>
-          <ListHeader title="Partidas agendadas" subtitle="Total 6" />
-
-          <FlatList
-            data={appointments}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <Appointment 
-                data={item} 
-                onPress={handleAppointmentDetais}
-              />
-            )}
-            style={styles.matches}
-            showsVerticalScrollIndicator={false}
-            ItemSeparatorComponent={() => <ListDivider />}
-          />
-        </View>
+        <ListHeader title="Partidas agendadas" subtitle="Total 6" />
+        
+        <FlatList
+          data={appointments}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <Appointment data={item} onPress={handleAppointmentDetais} />
+          )}
+          style={styles.matches}
+          contentContainerStyle={{paddingBottom: 69}}
+          showsVerticalScrollIndicator={false}
+          ItemSeparatorComponent={() => <ListDivider />}
+        />
       </View>
     </Background>
   );

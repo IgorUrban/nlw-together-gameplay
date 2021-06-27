@@ -38,8 +38,10 @@ export function Guilds({ handleGuildSelect }: Props){
             onPress={() => handleGuildSelect(item)}
           />
         )}    
+        ListHeaderComponent={() => <ListDivider isCentered/>}
+        contentContainerStyle={{paddingBottom: 68, paddingTop: 103}}
         showsVerticalScrollIndicator={false}
-        ItemSeparatorComponent={() => <ListDivider />}
+        ItemSeparatorComponent={() => <ListDivider isCentered/>}
         style={styles.guilds}
       />
     </View>
